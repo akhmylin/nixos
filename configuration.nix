@@ -20,10 +20,15 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
+  services.tor.enable = true;
+  services.tor.client.enable = true;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -50,10 +55,11 @@
   # $ nix search wget
     environment.systemPackages = with pkgs; [
       polkit_gnome htop chromium electrum gajim git keepassxc stow tdesktop thunderbird tor-browser-bundle-bin
-      transmission-gtk zathura 
+      transmission-gtk zathura unrar lm_sensors 
     ];
     
     nixpkgs.config.allowUnfree = true;
+    programs.iotop.enable = true;
      
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -108,8 +114,9 @@
     users.users.andrew = {
       description = "Andrew Akhmylin";
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "sudo" "docker" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "networkmanager" "sudo" "docker" "vboxusers" ]; # Enable ‘sudo’ for the user.
     };
+    security.sudo.wheelNeedsPassword = false;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
