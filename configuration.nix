@@ -43,9 +43,9 @@
 
   # Select internationalisation properties.
     i18n = {
-      consoleFont = "Lat2-Terminus16";
-      consoleKeyMap = "us";
-      defaultLocale = "en_US.UTF-8";
+      consoleFont = "cyr-sun16";
+      consoleKeyMap = "ru";
+      defaultLocale = "ru_RU.UTF-8";
     };
 
   # Set your time zone.
@@ -55,7 +55,7 @@
   # $ nix search wget
     environment.systemPackages = with pkgs; [
       polkit_gnome htop chromium electrum gajim git keepassxc stow tdesktop thunderbird tor-browser-bundle-bin
-      transmission-gtk zathura unrar lm_sensors 
+      transmission-gtk zathura unrar lm_sensors gimp 
     ];
     
     nixpkgs.config.allowUnfree = true;
