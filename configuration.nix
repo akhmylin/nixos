@@ -21,7 +21,7 @@
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.enable = false;
   virtualisation.virtualbox.host.enableExtensionPack = true;
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -89,6 +89,11 @@
     services.xserver.enable = true;
     services.xserver.layout = "us, ru";
     services.xserver.xkbOptions = "grp:alt_shift_toggle";
+    services.xserver.videoDrivers = [ "intel" ];
+    services.compton = {
+      enable = true;
+      backend = "glx";
+    };
     hardware.bumblebee.enable = true;
 
   # Autologin
