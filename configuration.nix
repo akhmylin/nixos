@@ -93,6 +93,7 @@
     services.compton = {
       enable = true;
       backend = "glx";
+      vSync = "opengl";
     };
     hardware.bumblebee.enable = true;
 
