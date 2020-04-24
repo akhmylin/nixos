@@ -48,12 +48,11 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-    i18n = {
-      consoleFont = "cyr-sun16";
-      consoleKeyMap = "ru";
-      defaultLocale = "ru_RU.UTF-8";
-    };
 
+     console.font = "cyr-sun16";
+     console.keyMap = "ru";
+     i18n.defaultLocale = "ru_RU.UTF-8";
+   
   # Set your time zone.
     time.timeZone = "Asia/Novosibirsk";
 
@@ -96,17 +95,18 @@
     services.xserver.layout = "us, ru";
     services.xserver.xkbOptions = "grp:alt_shift_toggle";
     services.xserver.videoDrivers = [ "intel" ];
-    services.compton = {
+    services.picom = {
       enable = true;
       backend = "glx";
-      vSync = "opengl";
+      vSync = true;
     };
     hardware.bumblebee.enable = true;
 
   # Autologin
 
-    services.xserver.displayManager.auto.enable = true;
-    services.xserver.displayManager.auto.user = "andrew";
+    services.xserver.displayManager.lightdm.enable = true;
+    services.xserver.displayManager.lightdm.autoLogin.enable = true;
+    services.xserver.displayManager.lightdm.autoLogin.user = "andrew";
 
   # Enable touchpad support.
     services.xserver.libinput.enable = true;
@@ -117,10 +117,8 @@
 
   # Enable the XFCE Desktop Enviroment.
 
-    services.xserver.desktopManager = {
-      xfce.enable = true;
-      default = "xfce";
-   };          
+    services.xserver.desktopManager.xfce.enable = true;
+    services.xserver.displayManager.defaultSession = "xfce";          
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.andrew = {
