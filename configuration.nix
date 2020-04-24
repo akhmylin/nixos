@@ -5,6 +5,11 @@
 
 { config, pkgs, ... }:
 
+#  let
+#    tarball = builtins.fetchTarball "https://github.com/NixOS/nixpkgs/archive/19.09.tar.gz";
+#    pinned = import tarball {};
+#  in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -22,8 +27,9 @@
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.guest.enable = false;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-
+  virtualisation.virtualbox.host.enableExtensionPack = false;
+ # virtualisation.virtualbox.host.package = pinned.virtualbox;
+  
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
@@ -60,7 +66,7 @@
     
     nixpkgs.config.allowUnfree = true;
     programs.iotop.enable = true;
-     
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
