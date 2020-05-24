@@ -61,7 +61,7 @@
     environment.systemPackages = with pkgs; [
       polkit_gnome htop chromium electrum gajim git keepassxc stow tdesktop thunderbird tor-browser-bundle-bin
       transmission-gtk zathura unrar lm_sensors gimp gnome3.file-roller firefox libreoffice monero-gui mpv openvpn pciutils 
-      unzip zip 
+      unzip zip yacreader 
     ];
     
     nixpkgs.config.allowUnfree = true;
