@@ -106,8 +106,8 @@
   # Autologin
 
     services.xserver.displayManager.lightdm.enable = true;
-    services.xserver.displayManager.lightdm.autoLogin.enable = true;
-    services.xserver.displayManager.lightdm.autoLogin.user = "andrew";
+    services.xserver.displayManager.autoLogin.enable = true;
+    services.xserver.displayManager.autoLogin.user = "andrew";
 
   # Enable touchpad support.
     services.xserver.libinput.enable = true;
