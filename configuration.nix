@@ -66,6 +66,10 @@
     
     nixpkgs.config.allowUnfree = true;
     programs.iotop.enable = true;
+    nixpkgs.config.permittedInsecurePackages = [
+                "electron-13.6.9"
+              ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
