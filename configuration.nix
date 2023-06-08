@@ -17,7 +17,6 @@
     ];
 
   # Use the GRUB 2 boot loader.
-test
   boot.loader.grub.enable = true;
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.efiInstallAsRemovable = true;
