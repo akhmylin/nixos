@@ -64,6 +64,7 @@
     ];
     
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowBroken = true;
     nixpkgs.config.nvidia.acceptLicense = true;
     programs.iotop.enable = true;
     nixpkgs.config.permittedInsecurePackages = [
