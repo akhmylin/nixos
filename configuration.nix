@@ -60,7 +60,7 @@
     environment.systemPackages = with pkgs; [
       polkit_gnome htop chromium gajim git keepassxc stow tdesktop thunderbird transmission-gtk zathura unrar lm_sensors gimp gnome3.file-roller firefox libreoffice mpv openvpn pciutils 
       unzip zip yacreader anki gparted audacious direnv radare2 radare2-cutter putty filezilla ghidra-bin sqlitebrowser
-      wget smplayer vscode-fhs
+      wget smplayer vscode-fhs element-desktop tor-browser
     ];
     
     nixpkgs.config.allowUnfree = true;
