@@ -58,7 +58,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
     environment.systemPackages = with pkgs; [
-      polkit_gnome htop chromium gajim git keepassxc stow tdesktop thunderbird transmission-gtk zathura unrar lm_sensors gimp gnome3.file-roller firefox libreoffice mpv openvpn pciutils 
+      polkit_gnome htop chromium gajim git keepassxc stow tdesktop thunderbird transmission-gtk zathura unrar lm_sensors 
+      gimp gnome3.file-roller firefox libreoffice mpv openvpn pciutils 
       unzip zip yacreader anki gparted audacious direnv radare2 radare2-cutter putty filezilla ghidra-bin sqlitebrowser
       wget smplayer vscode-fhs element-desktop tor-browser
     ];
@@ -70,7 +71,6 @@
     nixpkgs.config.permittedInsecurePackages = [
                 "electron-13.6.9"
               ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -87,6 +87,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
     networking.firewall.enable = true;
+    nix.settings.auto-optimise-store = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -106,6 +107,7 @@
       backend = "glx";
       vSync = true;
     };
+    
     hardware.bumblebee.enable = true;
 
   # Autologin
